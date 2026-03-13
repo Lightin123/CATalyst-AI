@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { User, Sparkles } from 'lucide-react';
 import clsx from 'clsx';
+import MarkdownRenderer from './MarkdownRenderer';
 
 interface Message {
   id: string;
@@ -34,10 +35,13 @@ export default function MessageBubble({ message }: { message: Message }) {
             ? "bg-blue-600 text-white rounded-tr-sm border-blue-700" 
             : "bg-white text-gray-800 border-gray-100 rounded-tl-sm"
         )}>
-          {/* Note: In a real app we would use react-markdown here */}
-          <div className="whitespace-pre-wrap leading-relaxed font-medium">
-            {message.content}
-          </div>
+          {isUser ? (
+            <div className="whitespace-pre-wrap leading-relaxed font-medium">
+              {message.content}
+            </div>
+          ) : (
+            <MarkdownRenderer content={message.content} />
+          )}
         </div>
       </div>
     </motion.div>
