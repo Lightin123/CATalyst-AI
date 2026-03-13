@@ -9,3 +9,83 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
+
+.markdown-body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  line-height: 1.7;
+  font-size: 16px;
+  color: inherit;
+  max-width: 750px;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 28px;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 2em;
+  list-style-type: disc;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+}
+
+.markdown-body li {
+  margin-bottom: 10px;
+}
+
+.markdown-body code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.24em 0.4em;
+  border-radius: 6px;
+  font-size: 85%;
+}
+
+.markdown-body pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  border-radius: 8px;
+  overflow: auto;
+  line-height: 1.45;
+  margin-bottom: 1em;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.markdown-body table {
+  margin-bottom: 1em;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.markdown-body th, .markdown-body td {
+  padding: 8px 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}

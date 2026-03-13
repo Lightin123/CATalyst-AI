@@ -1,6 +1,4 @@
 import { Request, Response } from 'express';
-import { catalystAgent } from '../agents/catalystAgent';
-import { HumanMessage } from '@langchain/core/messages';
 import prisma from '../database/prismaClient';
 
 export const handleChat = async (req: Request, res: Response) => {
@@ -36,16 +34,20 @@ export const handleChat = async (req: Request, res: Response) => {
       }
     });
 
-    // Call LangGraph AI Agent
-    const finalState = await catalystAgent.invoke(
-      { messages: [new HumanMessage(message)], intent },
-      { configurable: { thread_id: activeSessionId } }
-    );
-    
-    // Extract recent AI message
-    const msgs = finalState.messages as any[];
-    const lastMsg = msgs[msgs.length - 1];
-    const aiContent = lastMsg?.content || 'No response generated.';
+    // Forward request to FastAPI Python backend
+    const fastApiUrl = process.env.PYTHON_BACKEND_URL || 'http://localhost:8000';
+    const response = await fetch(`${fastApiUrl}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, intent })
+    });
+
+    if (!response.ok) {
+      throw new Error(`FastAPI returned ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    const aiContent = data.answer || 'No response generated.';
 
     // Save AI message to database
     await prisma.message.create({
@@ -58,7 +60,7 @@ export const handleChat = async (req: Request, res: Response) => {
     
     res.json({
       reply: aiContent,
-      intent: finalState.intent,
+      intent: intent,
       sessionId: activeSessionId
     });
   } catch (error) {

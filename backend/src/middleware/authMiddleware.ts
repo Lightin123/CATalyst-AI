@@ -17,10 +17,10 @@ export const authenticate = (req: Request, res: Response, next: NextFunction) =>
     }
   }
   
-  // Demo Mode: If no valid token, create a temporary session ID for this request
-  // In a real implementation with LangGraph checkpointing, we will track this via session cookies or headers.
+  // Demo Mode: If no valid token, create a static user ID for demo purposes.
+  // The temporary session ID can still be tracked.
   const sessionId = req.headers['x-demo-session-id'] || uuidv4();
-  (req as any).user = { id: sessionId, role: 'demo' };
+  (req as any).user = { id: 'demo-user', role: 'demo', sessionId };
   
   next();
 };
