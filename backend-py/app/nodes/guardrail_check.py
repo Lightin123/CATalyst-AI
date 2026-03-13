@@ -33,7 +33,9 @@ async def guardrail_check(state: AgentState) -> dict:
             }
 
     # ── Lightweight heuristic: very short or empty queries ──
-    if len(user_question.strip()) < 3:
+    # Allow short follow-up messages like "more", "easier", "harder"
+    is_followup = state.get("is_followup", False)
+    if len(user_question.strip()) < 3 and not is_followup:
         print("[GuardrailCheck] BLOCKED — query too short")
         return {
             "guardrail_passed": False,

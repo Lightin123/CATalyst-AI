@@ -8,11 +8,14 @@ from typing import Any, TypedDict
 class ChatRequest(BaseModel):
     message: str
     intent: str = "cat_prep"
+    session_id: str | None = None
+    chat_history: list[dict[str, str]] = []
 
 
 class ChatResponse(BaseModel):
     answer: str
     context_used: list[dict[str, Any]]
+    session_id: str | None = None
 
 
 # ── Database Row ─────────────────────────────────────────────
@@ -37,3 +40,5 @@ class AgentState(TypedDict, total=False):
     intent: str
     filters: dict[str, Any]
     guardrail_passed: bool
+    is_followup: bool
+    chat_history: list[dict[str, str]]

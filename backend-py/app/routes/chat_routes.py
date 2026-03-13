@@ -48,6 +48,8 @@ async def chat(body: ChatRequest, user: dict = Depends(get_current_user)):
             "retrieved_context": [],
             "filters": {},
             "guardrail_passed": True,
+            "is_followup": False,
+            "chat_history": body.chat_history,
         })
 
         # Extract the AI response
@@ -62,7 +64,11 @@ async def chat(body: ChatRequest, user: dict = Depends(get_current_user)):
 
         context_used = result.get("retrieved_context", [])
 
-        return ChatResponse(answer=answer, context_used=context_used)
+        return ChatResponse(
+            answer=answer,
+            context_used=context_used,
+            session_id=body.session_id,
+        )
 
     except Exception as e:
         print(f"Chat error: {e}")
