@@ -15,12 +15,7 @@ async def lifespan(app: FastAPI):
     print("[STARTUP] Starting CATalyst AI backend...")
     pool = await get_pool()
     print(f"[STARTUP] Connected to Vector DB (pool size: {pool.get_size()})")
-
-    # Pre-load the embedding model on startup so first request is fast
-    print("[STARTUP] Loading embedding model (all-MiniLM-L6-v2)...")
-    from app.services.embedding_service import generate_embedding
-    generate_embedding("warmup")
-    print("[STARTUP] Embedding model loaded")
+    print("[STARTUP] Backend ready. Embedding model will load on first request.")
 
     yield
 

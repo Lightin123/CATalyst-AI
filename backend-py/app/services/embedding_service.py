@@ -1,12 +1,18 @@
+import logging
 from sentence_transformers import SentenceTransformer
+
+logger = logging.getLogger(__name__)
 
 _model: SentenceTransformer | None = None
 
 
 def _get_model() -> SentenceTransformer:
+    """Lazily load the embedding model on first use."""
     global _model
     if _model is None:
-        _model = SentenceTransformer("all-MiniLM-L6-v2")
+        logger.info("[EMBEDDING] Loading embedding model...")
+        _model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
+        logger.info("[EMBEDDING] Model loaded successfully")
     return _model
 
 
