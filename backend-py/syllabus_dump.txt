@@ -1,0 +1,188 @@
+Course Code: : MAT1001
+Course Title Calculus for Engineers
+TPC
+3
+2
+4
+Version No.
+2.1
+2.1
+2.1
+2.1
+2.1
+Course Pre-requisites/ Co-requisites/ anti-requisites (if any). Otherwise, please indicate as ‘None’
+Anti-requisite: MAT1008
+Anti-requisite: MAT1008
+Anti-requisite: MAT1008
+Anti-requisite: MAT1008
+Anti-requisite: MAT1008
+Objectives:
+The objectives of this course are: 
+To enable students to use fundamental tools of mathematics in theoretical studies as well as to apply modern computer software to enhance the project-based learning.
+To improve the analytical skills needed to solve engineering problems
+To provide knowledge and understanding the concepts partial derivatives, multiple integrals and vector Calculus. 
+To understand the concepts of Fourier series and application to mechanical systems and electric circuits 
+Develop the ability to comprehend and generate rigorous formal mathematical arguments, as well as implement basic mathematical logic.
+The usage of MATLAB to facilitate understanding and     visualization of mathematical problems.
+The objectives of this course are: 
+To enable students to use fundamental tools of mathematics in theoretical studies as well as to apply modern computer software to enhance the project-based learning.
+To improve the analytical skills needed to solve engineering problems
+To provide knowledge and understanding the concepts partial derivatives, multiple integrals and vector Calculus. 
+To understand the concepts of Fourier series and application to mechanical systems and electric circuits 
+Develop the ability to comprehend and generate rigorous formal mathematical arguments, as well as implement basic mathematical logic.
+The usage of MATLAB to facilitate understanding and     visualization of mathematical problems.
+The objectives of this course are: 
+To enable students to use fundamental tools of mathematics in theoretical studies as well as to apply modern computer software to enhance the project-based learning.
+To improve the analytical skills needed to solve engineering problems
+To provide knowledge and understanding the concepts partial derivatives, multiple integrals and vector Calculus. 
+To understand the concepts of Fourier series and application to mechanical systems and electric circuits 
+Develop the ability to comprehend and generate rigorous formal mathematical arguments, as well as implement basic mathematical logic.
+The usage of MATLAB to facilitate understanding and     visualization of mathematical problems.
+The objectives of this course are: 
+To enable students to use fundamental tools of mathematics in theoretical studies as well as to apply modern computer software to enhance the project-based learning.
+To improve the analytical skills needed to solve engineering problems
+To provide knowledge and understanding the concepts partial derivatives, multiple integrals and vector Calculus. 
+To understand the concepts of Fourier series and application to mechanical systems and electric circuits 
+Develop the ability to comprehend and generate rigorous formal mathematical arguments, as well as implement basic mathematical logic.
+The usage of MATLAB to facilitate understanding and     visualization of mathematical problems.
+The objectives of this course are: 
+To enable students to use fundamental tools of mathematics in theoretical studies as well as to apply modern computer software to enhance the project-based learning.
+To improve the analytical skills needed to solve engineering problems
+To provide knowledge and understanding the concepts partial derivatives, multiple integrals and vector Calculus. 
+To understand the concepts of Fourier series and application to mechanical systems and electric circuits 
+Develop the ability to comprehend and generate rigorous formal mathematical arguments, as well as implement basic mathematical logic.
+The usage of MATLAB to facilitate understanding and     visualization of mathematical problems.
+Module No. 1
+Single Variable Calculus
+9 Hours
+(Review of Limit, continuity of functions of single variable)
+Differentiation, Extrema on an Interval, Rolle’s Theorem and the Mean value theorem, Increasing and decreasing functions, First derivative test, Second derivative test, Maxima and Minima, Concavity. Integration, Average function value, Area between curves, Volumes of solids of revolution
+Convergence of Sequences and Series.
+(Review of Limit, continuity of functions of single variable)
+Differentiation, Extrema on an Interval, Rolle’s Theorem and the Mean value theorem, Increasing and decreasing functions, First derivative test, Second derivative test, Maxima and Minima, Concavity. Integration, Average function value, Area between curves, Volumes of solids of revolution
+Convergence of Sequences and Series.
+(Review of Limit, continuity of functions of single variable)
+Differentiation, Extrema on an Interval, Rolle’s Theorem and the Mean value theorem, Increasing and decreasing functions, First derivative test, Second derivative test, Maxima and Minima, Concavity. Integration, Average function value, Area between curves, Volumes of solids of revolution
+Convergence of Sequences and Series.
+Module No. 2
+Multivariable Differential Calculus
+9 Hours
+Functions of two or more variables, Level curves, Limits and Continuity, Partial derivatives, Chain Rules, Total differential, Jacobian, Taylor’s expansion for two variables, Linear Approximation and Increment estimation, Maxima, minima and saddle points, Constrained maxima and minima, Lagrange’s multiplier method, Differentiation of integrals containing a parameter-Leibnitz's rule.
+Functions of two or more variables, Level curves, Limits and Continuity, Partial derivatives, Chain Rules, Total differential, Jacobian, Taylor’s expansion for two variables, Linear Approximation and Increment estimation, Maxima, minima and saddle points, Constrained maxima and minima, Lagrange’s multiplier method, Differentiation of integrals containing a parameter-Leibnitz's rule.
+Functions of two or more variables, Level curves, Limits and Continuity, Partial derivatives, Chain Rules, Total differential, Jacobian, Taylor’s expansion for two variables, Linear Approximation and Increment estimation, Maxima, minima and saddle points, Constrained maxima and minima, Lagrange’s multiplier method, Differentiation of integrals containing a parameter-Leibnitz's rule.
+Module No. 3
+Multivariable Integral Calculus
+9 Hours
+Evaluation of double integrals, Change of order of integration, Change of variables between Cartesian and polar co-ordinates, Evaluation of triple integrals, Change of variables between Cartesian and cylindrical and spherical polar co-ordinates, Beta and Gamma functions and their relation, Evaluation of integrals using Gamma and Beta functions, Error function and its properties.
+Evaluation of double integrals, Change of order of integration, Change of variables between Cartesian and polar co-ordinates, Evaluation of triple integrals, Change of variables between Cartesian and cylindrical and spherical polar co-ordinates, Beta and Gamma functions and their relation, Evaluation of integrals using Gamma and Beta functions, Error function and its properties.
+Evaluation of double integrals, Change of order of integration, Change of variables between Cartesian and polar co-ordinates, Evaluation of triple integrals, Change of variables between Cartesian and cylindrical and spherical polar co-ordinates, Beta and Gamma functions and their relation, Evaluation of integrals using Gamma and Beta functions, Error function and its properties.
+Module No. 4
+Vector Calculus
+9 Hours
+Scalar and vector point functions, Vector differentiation, Expressions for velocity and acceleration in cylindrical geometry, Gradient-Physical interpretation, Directional derivative, Divergence and Curl - Physical interpretations, Statement of vector identities, Scalar and vector potentials, Vector integration-Line, Surface, and Volume integrals, Statement of Green’s, Stokes’ and Gauss divergence theorems - Verification and evaluation of vector integrals using them.
+Scalar and vector point functions, Vector differentiation, Expressions for velocity and acceleration in cylindrical geometry, Gradient-Physical interpretation, Directional derivative, Divergence and Curl - Physical interpretations, Statement of vector identities, Scalar and vector potentials, Vector integration-Line, Surface, and Volume integrals, Statement of Green’s, Stokes’ and Gauss divergence theorems - Verification and evaluation of vector integrals using them.
+Scalar and vector point functions, Vector differentiation, Expressions for velocity and acceleration in cylindrical geometry, Gradient-Physical interpretation, Directional derivative, Divergence and Curl - Physical interpretations, Statement of vector identities, Scalar and vector potentials, Vector integration-Line, Surface, and Volume integrals, Statement of Green’s, Stokes’ and Gauss divergence theorems - Verification and evaluation of vector integrals using them.
+Module No. 5
+Fourier series
+7 Hours
+Fourier series - Euler’s formulae, Dirichlet’s conditions, Fourier series for even and odd functions, Half range series, RMS value, Parseval’s identity.
+Fourier series - Euler’s formulae, Dirichlet’s conditions, Fourier series for even and odd functions, Half range series, RMS value, Parseval’s identity.
+Fourier series - Euler’s formulae, Dirichlet’s conditions, Fourier series for even and odd functions, Half range series, RMS value, Parseval’s identity.
+Text Books
+George B. Thomas, D. Weir and J. Hass (2013), Thomas’ Calculus, 13h Edition, Pearson
+Text Books
+George B. Thomas, D. Weir and J. Hass (2013), Thomas’ Calculus, 13h Edition, Pearson
+Text Books
+George B. Thomas, D. Weir and J. Hass (2013), Thomas’ Calculus, 13h Edition, Pearson
+References
+Gilbert Strang (2010), Calculus, 2nd Edition, Wellesley-Cambridge Press.
+Dennis G Zill and Warren S Wright (2011), Multivariable Calculus, 4th Edition, Jones and Bartlett Publishers.
+Erwin Kreyszig (2017), Advanced Engineering Mathematics, 10th Edition, John Wiley.
+Glyn James (2016), Advanced Modern Engineering Mathematics, 4th Edition, Pearson.
+B. S. Grewal (2017), Higher Engineering Mathematics, 44th Edition, Khanna Publishers.
+Rudra Pratap (2016), Getting started with MATLAB: A quick introduction for scientists and Engineers, 7th Edition, Oxford University Press.
+References
+Gilbert Strang (2010), Calculus, 2nd Edition, Wellesley-Cambridge Press.
+Dennis G Zill and Warren S Wright (2011), Multivariable Calculus, 4th Edition, Jones and Bartlett Publishers.
+Erwin Kreyszig (2017), Advanced Engineering Mathematics, 10th Edition, John Wiley.
+Glyn James (2016), Advanced Modern Engineering Mathematics, 4th Edition, Pearson.
+B. S. Grewal (2017), Higher Engineering Mathematics, 44th Edition, Khanna Publishers.
+Rudra Pratap (2016), Getting started with MATLAB: A quick introduction for scientists and Engineers, 7th Edition, Oxford University Press.
+References
+Gilbert Strang (2010), Calculus, 2nd Edition, Wellesley-Cambridge Press.
+Dennis G Zill and Warren S Wright (2011), Multivariable Calculus, 4th Edition, Jones and Bartlett Publishers.
+Erwin Kreyszig (2017), Advanced Engineering Mathematics, 10th Edition, John Wiley.
+Glyn James (2016), Advanced Modern Engineering Mathematics, 4th Edition, Pearson.
+B. S. Grewal (2017), Higher Engineering Mathematics, 44th Edition, Khanna Publishers.
+Rudra Pratap (2016), Getting started with MATLAB: A quick introduction for scientists and Engineers, 7th Edition, Oxford University Press.
+Related Applications
+Related Applications
+Related Applications
+Distance, Velocity, Acceleration of moving object, Projectile motion (Module 1)
+Area under a curve (Module 1)
+Arc length, Area of Surface of revolution and Volume of surface of revolution (Module 1)
+Maxima and minima (Module 1 & Module 2)
+Converting nonlinear functions into linear functions - Linearization (Module 2)
+Mass, Total charge, Power, Area under the plane curves (Module 3)
+Moment of inertia and center of mass (Module 3)
+Conservative fields and Work done (Module 4)
+Total electric charge and Flux (Module 4)
+Power of the signal – Parsevel’s identity ((Module 5)
+Distance, Velocity, Acceleration of moving object, Projectile motion (Module 1)
+Area under a curve (Module 1)
+Arc length, Area of Surface of revolution and Volume of surface of revolution (Module 1)
+Maxima and minima (Module 1 & Module 2)
+Converting nonlinear functions into linear functions - Linearization (Module 2)
+Mass, Total charge, Power, Area under the plane curves (Module 3)
+Moment of inertia and center of mass (Module 3)
+Conservative fields and Work done (Module 4)
+Total electric charge and Flux (Module 4)
+Power of the signal – Parsevel’s identity ((Module 5)
+Distance, Velocity, Acceleration of moving object, Projectile motion (Module 1)
+Area under a curve (Module 1)
+Arc length, Area of Surface of revolution and Volume of surface of revolution (Module 1)
+Maxima and minima (Module 1 & Module 2)
+Converting nonlinear functions into linear functions - Linearization (Module 2)
+Mass, Total charge, Power, Area under the plane curves (Module 3)
+Moment of inertia and center of mass (Module 3)
+Conservative fields and Work done (Module 4)
+Total electric charge and Flux (Module 4)
+Power of the signal – Parsevel’s identity ((Module 5)
+Laboratory exercises
+Laboratory exercises
+Understanding the concepts of Mathematics through the following MATLAB experiments:
+Introduction to the relevant software through matrices
+Plotting and visualizing functions, Rates of change of functions / tangent line
+Understanding integration as area under the curve
+Evaluating extremum of a single variable function
+Plotting of surfaces and visualizing tangent planes
+Evaluating maxima and minima of function of several variables
+Applying Lagrange Multiplier Method
+Evaluating volume under surfaces
+Evaluating triple integrals
+Evaluating integrals using cylindrical and spherical coordinates and their visualization
+Visualising Gradient, Curl and Divergence
+Evaluating line integrals
+Applying Green’s, Stokes’ and Gauss divergence theorems
+Understanding the concepts of Mathematics through the following MATLAB experiments:
+Introduction to the relevant software through matrices
+Plotting and visualizing functions, Rates of change of functions / tangent line
+Understanding integration as area under the curve
+Evaluating extremum of a single variable function
+Plotting of surfaces and visualizing tangent planes
+Evaluating maxima and minima of function of several variables
+Applying Lagrange Multiplier Method
+Evaluating volume under surfaces
+Evaluating triple integrals
+Evaluating integrals using cylindrical and spherical coordinates and their visualization
+Visualising Gradient, Curl and Divergence
+Evaluating line integrals
+Applying Green’s, Stokes’ and Gauss divergence theorems
+Mode of Evaluation
+Continuous Assessments (Quizzes, CATs, FAT, Assignments etc.).
+Recommended by the Board of Studies on
+15-11-2023
+Date of Approval by the Academic Council
+11th AC 22.11.23
+Prepared By
+Department of Mathematics

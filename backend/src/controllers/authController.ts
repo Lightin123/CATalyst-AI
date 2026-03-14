@@ -1,13 +1,14 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import prisma from '../database/prismaClient';
+import bcrypt from 'bcryptjs';
 
 export const register = async (req: Request, res: Response) => {
   try {
-    const { email } = req.body;
+    const { email, password } = req.body;
     
-    if (!email) {
-      return res.status(400).json({ error: 'Email is required' });
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
     }
 
     const existingUser = await prisma.user.findUnique({ where: { email }});
@@ -15,17 +16,13 @@ export const register = async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'User already exists. Please sign in.' });
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const user = await prisma.user.create({
-      data: { email, role: 'student' }
+      data: { email, password: hashedPassword, role: 'student' }
     });
 
-    const token = jwt.sign(
-      { id: user.id, email: user.email, role: user.role },
-      process.env.JWT_SECRET || 'fallback_secret',
-      { expiresIn: '24h' }
-    );
-
-    res.status(201).json({ token, user, message: 'Account created successfully' });
+    res.status(201).json({ user: { id: user.id, email: user.email }, message: 'Account created successfully. Please sign in.' });
   } catch (error) {
     console.error('Registration error:', error);
     res.status(500).json({ error: 'Registration failed' });
@@ -34,16 +31,25 @@ export const register = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
   try {
-    const { email } = req.body;
+    const { email, password } = req.body;
     
-    if (!email) {
-      return res.status(400).json({ error: 'Email is required' });
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
     }
 
     const user = await prisma.user.findUnique({ where: { email }});
 
     if (!user) {
       return res.status(404).json({ error: 'Account not found. Please sign up first.' });
+    }
+
+    if (!user.password) {
+      return res.status(401).json({ error: 'Invalid credentials. Password not set.' });
+    }
+
+    const isValidPassword = await bcrypt.compare(password, user.password);
+    if (!isValidPassword) {
+      return res.status(401).json({ error: 'Invalid email or password.' });
     }
 
     const token = jwt.sign(

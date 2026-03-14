@@ -12,7 +12,6 @@ class Settings(BaseSettings):
     llm_temperature: float = 0.7
     llm_top_p: float = 0.9
     llm_max_tokens: int = 2048
-    llm_seed: int = 42
 
     class Config:
         env_file = ".env"

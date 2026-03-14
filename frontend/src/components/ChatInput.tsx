@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, Loader2 } from 'lucide-react';
+import { ArrowUp, Loader2 } from 'lucide-react';
 
 interface ChatInputProps {
   onSendMessage: (msg: string) => void;
@@ -17,25 +17,42 @@ export default function ChatInput({ onSendMessage, isLoading }: ChatInputProps) 
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-white border-t border-gray-100 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] relative z-20">
-      <div className="max-w-4xl mx-auto relative flex items-center">
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Ask CATalyst AI something..."
-          className="w-full bg-gray-50 border border-gray-200 rounded-full px-6 py-4 pr-16 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-medium placeholder-gray-400 shadow-inner"
-          disabled={isLoading}
-        />
-        <button
-          type="submit"
-          disabled={!text.trim() || isLoading}
-          className="absolute right-2 p-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-blue-500/20"
-        >
-          {isLoading ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
-        </button>
+    <div className="bg-transparent relative z-20 px-4 pb-3 pt-2">
+      <div className="max-w-3xl mx-auto">
+        <form onSubmit={handleSubmit}>
+          <div className="flex items-end rounded-3xl border border-[#D1D5DB] bg-[#F4F4F4] px-4 py-2 focus-within:border-[#A3A3A3] focus-within:bg-white focus-within:shadow-sm transition-all duration-200">
+            <textarea
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask anything"
+              rows={1}
+              className="flex-1 resize-none bg-transparent py-2 text-[#0F172A] text-sm focus:outline-none placeholder-[#8E8E93] leading-relaxed max-h-40 overflow-y-auto"
+              disabled={isLoading}
+              style={{ minHeight: '24px' }}
+            />
+            <button
+              type="submit"
+              disabled={!text.trim() || isLoading}
+              style={{ alignSelf: 'center' }}
+              className="ml-2 p-1.5 rounded-full bg-black text-white hover:bg-[#1a1a1a] disabled:bg-[#D1D5DB] disabled:text-white disabled:cursor-not-allowed transition-colors duration-150 shrink-0 self-end mb-0.5"
+            >
+              {isLoading ? <Loader2 size={16} className="animate-spin" /> : <ArrowUp size={16} strokeWidth={2.5} />}
+            </button>
+          </div>
+        </form>
+        <p className="text-center text-[11px] text-[#8E8E93] mt-2">
+          CATalyst AI can make mistakes. Check important info.
+        </p>
       </div>
-    </form>
+    </div>
   );
 }

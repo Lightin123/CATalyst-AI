@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Menu, LogOut } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import ChatWindow from '../components/ChatWindow';
 import Sidebar from '../components/Sidebar';
 
@@ -19,18 +19,23 @@ export default function Workspace() {
     }
   }, [navigate]);
 
-  const handleSignOut = () => {
-    localStorage.removeItem('auth_token');
-    sessionStorage.removeItem('is_demo');
-    navigate('/');
-  };
+  // Listen for study mode changes from NavSidebar
+  useEffect(() => {
+    const handleIntentChange = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      setIntent(customEvent.detail);
+      setActiveSessionId(null); // Reset to fresh session for new mode
+    };
+    window.addEventListener('intentChanged', handleIntentChange);
+    return () => window.removeEventListener('intentChanged', handleIntentChange);
+  }, []);
 
   if (!intent) return null;
 
   return (
-    <div className="flex h-screen bg-[#FAFAFB] text-gray-900 overflow-hidden">
-      {/* Sidebar - Collapsible on small screens */}
-      <div className={`transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-0'} overflow-hidden h-full flex-shrink-0 z-20`}>
+    <div className="flex h-full bg-[#F8FAFC] text-[#0F172A] overflow-hidden">
+      {/* Chat Session Sidebar - Collapsible */}
+      <div className={`transition-all duration-200 ${isSidebarOpen ? 'w-64' : 'w-0'} overflow-hidden h-full flex-shrink-0 z-20`}>
         <Sidebar 
           intent={intent} 
           activeSessionId={activeSessionId} 
@@ -38,38 +43,17 @@ export default function Workspace() {
         />
       </div>
 
-      <div className="flex-1 flex flex-col h-screen min-w-0">
-        <header className="flex items-center p-4 border-b border-gray-200 bg-white/80 backdrop-blur-md sticky top-0 z-10 shadow-sm justify-between">
-          <div className="flex items-center">
-            <button
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="p-2 mr-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-500 hover:text-gray-900"
-              title="Toggle Sidebar"
-            >
-              <Menu size={20} />
-            </button>
-            <button
-              onClick={() => navigate('/dashboard')}
-              className="p-2 mr-4 hover:bg-gray-100 rounded-lg transition-colors text-gray-500 hover:text-gray-900"
-              title="Back to Dashboard"
-            >
-              <ArrowLeft size={20} />
-            </button>
-            <div className="hidden md:block">
-              <h1 className="text-lg font-bold capitalize text-gray-900">
-                {intent.replace('_', ' ')} Session
-              </h1>
-              <p className="text-xs text-blue-600 font-medium tracking-wide">CATalyst AI Tutor is ready</p>
-            </div>
-          </div>
-          
-          <button 
-            onClick={handleSignOut}
-            className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white border border-gray-200 shadow-sm text-gray-600 rounded-lg hover:bg-gray-50 hover:text-red-600 transition-colors font-medium text-sm md:text-base mr-2"
+      <div className="flex-1 flex flex-col h-full min-w-0">
+        {/* Minimal toggle button floating at top-left */}
+        {!isSidebarOpen && (
+          <button
+            onClick={() => setIsSidebarOpen(true)}
+            className="absolute top-4 left-4 p-2 hover:bg-[#F1F5F9] rounded-lg transition-colors duration-150 text-[#94A3B8] hover:text-[#0F172A] z-30"
+            title="Show Chat History"
           >
-            <LogOut size={16} className="md:w-4 md:h-4" /> <span className="hidden md:inline">Sign Out</span>
+            <Menu size={20} />
           </button>
-        </header>
+        )}
 
         <main className="flex-1 overflow-hidden relative">
           <ChatWindow intent={intent} sessionId={activeSessionId} onSessionCreated={setActiveSessionId} />

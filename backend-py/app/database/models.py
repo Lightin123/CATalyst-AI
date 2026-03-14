@@ -8,6 +8,7 @@ from typing import Any, TypedDict
 class ChatRequest(BaseModel):
     message: str
     intent: str = "cat_prep"
+    history: list[dict[str, str]] = []
 
 
 class ChatResponse(BaseModel):
@@ -37,3 +38,5 @@ class AgentState(TypedDict, total=False):
     intent: str
     filters: dict[str, Any]
     guardrail_passed: bool
+    is_interactive_quiz: bool
+    llm_temperature: float

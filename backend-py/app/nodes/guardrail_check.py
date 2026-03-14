@@ -23,6 +23,8 @@ async def guardrail_check(state: AgentState) -> dict:
     """
     user_question = state.get("user_question", "").lower()
 
+    messages = state.get("messages", [])
+
     # ── Rule-based keyword check ──────────────────────────
     for keyword in _BLOCKED_KEYWORDS:
         if keyword in user_question:
@@ -33,7 +35,7 @@ async def guardrail_check(state: AgentState) -> dict:
             }
 
     # ── Lightweight heuristic: very short or empty queries ──
-    if len(user_question.strip()) < 3:
+    if len(user_question.strip()) < 3 and not messages:
         print("[GuardrailCheck] BLOCKED — query too short")
         return {
             "guardrail_passed": False,

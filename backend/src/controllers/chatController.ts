@@ -25,6 +25,13 @@ export const handleChat = async (req: Request, res: Response) => {
        activeSessionId = session.id;
     }
 
+    // Fetch history before adding the new message
+    const previousMessages = await prisma.message.findMany({
+      where: { session_id: activeSessionId },
+      orderBy: { created_at: 'asc' },
+      select: { role: true, content: true }
+    });
+
     // Save user message to database
     await prisma.message.create({
       data: {
@@ -34,12 +41,12 @@ export const handleChat = async (req: Request, res: Response) => {
       }
     });
 
-    // Forward request to FastAPI Python backend
+    // Forward request and history to FastAPI Python backend
     const fastApiUrl = process.env.PYTHON_BACKEND_URL || 'http://localhost:8000';
     const response = await fetch(`${fastApiUrl}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message, intent })
+      body: JSON.stringify({ message, intent, history: previousMessages })
     });
 
     if (!response.ok) {

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, GraduationCap, Zap, LineChart, Brain, LogOut } from 'lucide-react';
+import { BookOpen, GraduationCap, Zap, LineChart, Brain } from 'lucide-react';
 
 const intents = [
   { id: 'cat_prep', title: 'CAT Prep', icon: BookOpen, desc: 'Step-by-step solutions for CA conceptual questions.' },
@@ -13,31 +13,17 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const handleSelect = (intentId: string) => {
-    // In a real app we'd save this to global state or context
     sessionStorage.setItem('current_intent', intentId);
     navigate('/workspace');
   };
 
-  const handleSignOut = () => {
-    localStorage.removeItem('auth_token');
-    sessionStorage.removeItem('is_demo');
-    navigate('/');
-  };
-
   return (
-    <div className="min-h-screen bg-[#FAFAFB] text-gray-900 flex flex-col items-center py-20 px-4 selection:bg-blue-100 relative">
-      <button 
-        onClick={handleSignOut}
-        className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 shadow-sm text-gray-600 rounded-lg hover:bg-gray-50 hover:text-red-600 transition-colors font-medium"
-      >
-        <LogOut size={18} /> Sign Out
-      </button>
-
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col items-center py-20 px-4 selection:bg-blue-100 relative">
       <div className="max-w-4xl w-full text-center mb-12">
-        <h1 className="text-5xl font-extrabold tracking-tight mb-4 text-gray-900">
-          CATalyst <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">AI</span>
+        <h1 className="text-5xl font-extrabold tracking-tight mb-4 text-[#0F172A]">
+          CATalyst <span className="text-[#3B82F6]">AI</span>
         </h1>
-        <p className="text-lg text-gray-500 font-medium">
+        <p className="text-lg text-[#64748B] font-medium">
           Your personal intelligent tutor for conquering university exams.
         </p>
       </div>
@@ -49,14 +35,14 @@ export default function Dashboard() {
             <button
               key={item.id}
               onClick={() => handleSelect(item.id)}
-              className="group relative flex flex-col items-start p-6 text-left bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col items-start p-6 text-left bg-white border border-[#E5E7EB] shadow-sm rounded-xl hover:shadow-md hover:border-[#93C5FD] transition-all duration-200 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="p-3 bg-blue-50 border border-blue-100 rounded-xl mb-4 text-blue-600 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all shadow-sm">
-                <Icon size={28} />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#EFF6FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              <div className="p-3 bg-[#EFF6FF] border border-[#DBEAFE] rounded-xl mb-4 text-[#3B82F6] group-hover:bg-[#3B82F6] group-hover:text-white group-hover:border-[#3B82F6] transition-all duration-200">
+                <Icon size={26} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 relative z-10">{item.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed relative z-10">{item.desc}</p>
+              <h3 className="text-lg font-semibold text-[#0F172A] mb-1.5 relative z-10">{item.title}</h3>
+              <p className="text-[#64748B] text-sm leading-relaxed relative z-10">{item.desc}</p>
             </button>
           );
         })}
@@ -64,3 +50,4 @@ export default function Dashboard() {
     </div>
   );
 }
+

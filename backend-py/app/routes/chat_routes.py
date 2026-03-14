@@ -44,7 +44,7 @@ async def chat(body: ChatRequest, user: dict = Depends(get_current_user)):
         result = await catalyst_agent.ainvoke({
             "user_question": body.message,
             "intent": body.intent,
-            "messages": [],
+            "messages": body.history,
             "retrieved_context": [],
             "filters": {},
             "guardrail_passed": True,

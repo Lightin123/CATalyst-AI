@@ -7,14 +7,6 @@ interface MarkdownRendererProps {
   content: string;
 }
 
-function preprocessMath(text: string) {
-  return text
-    .replace(/(?<!\\)int_/g, "\\int_")
-    .replace(/(?<!\\)\bsin\b/g, "\\sin")
-    .replace(/(?<!\\)\bcosh\b/g, "\\cosh")
-    .replace(/(?<!\\)\bcos\b/g, "\\cos");
-}
-
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
     <div className="markdown-body">
@@ -22,7 +14,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeKatex]}
       >
-        {preprocessMath(content)}
+        {content}
       </ReactMarkdown>
     </div>
   );
