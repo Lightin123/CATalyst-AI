@@ -26,7 +26,7 @@ services:
     name: catalyst-ai-backend
     runtime: node
     rootDir: backend
-    buildCommand: npm install --include=dev && npm run build
+    buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: DATABASE_URL
