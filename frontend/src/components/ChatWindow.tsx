@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import MessageBubble from './MessageBubble';
 import ChatInput from './ChatInput';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 interface Message {
   id: string;
@@ -43,7 +44,7 @@ export default function ChatWindow({ intent, sessionId, onSessionCreated }: Chat
         const headers: any = {};
         if (token) headers['Authorization'] = `Bearer ${token}`;
 
-        const res = await axios.get(`http://localhost:5000/api/chat/sessions/${sessionId}/messages`, { headers });
+        const res = await axios.get(`${API_BASE_URL}/api/chat/sessions/${sessionId}/messages`, { headers });
         const history: Message[] = res.data.map((msg: any) => ({
           id: msg.id,
           role: msg.role as 'user' | 'ai',
@@ -91,7 +92,7 @@ export default function ChatWindow({ intent, sessionId, onSessionCreated }: Chat
         headers['Authorization'] = `Bearer ${token}`;
       }
 
-      const res = await axios.post('http://localhost:5000/api/chat', {
+      const res = await axios.post(`${API_BASE_URL}/api/chat`, {
         message: text,
         intent,
         sessionId  // Pass existing session ID

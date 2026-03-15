@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 import { LogIn, UserPlus } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,7 +20,7 @@ export default function Login() {
     setLoading(true);
     try {
       const endpoint = isLoginView ? '/api/auth/login' : '/api/auth/register';
-      const res = await axios.post(`http://localhost:5000${endpoint}`, { email, password });
+      const res = await axios.post(`${API_BASE_URL}${endpoint}`, { email, password });
       
       if (isLoginView) {
         localStorage.setItem('auth_token', res.data.token);

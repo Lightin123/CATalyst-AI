@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     llm_top_p: float = 0.9
     llm_max_tokens: int = 2048
 
+    # Server settings (Render sets PORT automatically)
+    port: int = 8000
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

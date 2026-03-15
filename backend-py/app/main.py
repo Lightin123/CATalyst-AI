@@ -1,5 +1,6 @@
 """CATalyst AI — FastAPI Application Entry Point."""
 
+import os
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -32,9 +33,18 @@ app = FastAPI(
 )
 
 # ── CORS ──────────────────────────────────────────────────────
+# Build allowed origins: localhost for dev + Render URLs from env
+_origins = ["http://localhost:5173", "http://localhost:3000", "http://localhost:5000"]
+_frontend_url = os.getenv("FRONTEND_URL")          # e.g. https://catalyst-ai.onrender.com
+_express_url = os.getenv("EXPRESS_BACKEND_URL")     # e.g. https://catalyst-ai-api.onrender.com
+if _frontend_url:
+    _origins.append(_frontend_url)
+if _express_url:
+    _origins.append(_express_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
+    allow_origins=_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

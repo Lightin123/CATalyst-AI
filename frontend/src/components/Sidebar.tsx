@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MessageSquare, Plus, Trash2, Loader2 } from 'lucide-react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
 interface SidebarProps {
   intent: string;
@@ -27,7 +28,7 @@ export default function Sidebar({ intent, activeSessionId, onSelectSession }: Si
       const headers: any = {};
       if (token) headers['Authorization'] = `Bearer ${token}`;
 
-      const res = await axios.get(`http://localhost:5000/api/chat/sessions?intent=${intent}`, { headers });
+      const res = await axios.get(`${API_BASE_URL}/api/chat/sessions?intent=${intent}`, { headers });
       setSessions(res.data);
     } catch (err) {
       console.error('Failed to load sessions', err);
@@ -46,7 +47,7 @@ export default function Sidebar({ intent, activeSessionId, onSelectSession }: Si
       const headers: any = {};
       if (token) headers['Authorization'] = `Bearer ${token}`;
 
-      const res = await axios.post(`http://localhost:5000/api/chat/sessions`, { intent }, { headers });
+      const res = await axios.post(`${API_BASE_URL}/api/chat/sessions`, { intent }, { headers });
       setSessions([res.data, ...sessions]);
       onSelectSession(res.data.id);
     } catch (err) {
@@ -61,7 +62,7 @@ export default function Sidebar({ intent, activeSessionId, onSelectSession }: Si
       const headers: any = {};
       if (token) headers['Authorization'] = `Bearer ${token}`;
 
-      await axios.delete(`http://localhost:5000/api/chat/sessions/${id}`, { headers });
+      await axios.delete(`${API_BASE_URL}/api/chat/sessions/${id}`, { headers });
       setSessions(sessions.filter(s => s.id !== id));
       if (activeSessionId === id) {
         onSelectSession('');
